@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff;
+  --foreground: #070707;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Add theme override */
+[data-theme="dark"] {
+  --background: #070707;
+  --foreground: #ededed;
+}
+[data-theme="light"] {
+  --background: #fff;
+  --foreground: #070707;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    display: none !important;
+  }
+  .hamburger-menu-btn {
+    display: block !important;
+  }
+}
+@media (min-width: 769px) {
+  .header-nav {
+    display: flex !important;
+  }
+  .hamburger-menu-btn {
+    display: none !important;
+  }
+}
+
+/* Header button hover effect */
+.header-link {
+  transition: color 0.2s, background 0.2s;
+  border-radius: 4px;
+  padding: 10px 16px;
+  color: inherit;
+  background: none;
+}
+.header-link:hover, .header-link:focus-visible {
+  color: #222 !important;
+  background: #fff !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header-link:hover, .header-link:focus-visible {
+    color: #fff !important;
+    background: #333 !important;
+  }
+}
+
+/* Header nav alignment for taller items */
+.header-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 40px;
+}
+/* Theme toggle button hover effect */
+.theme-toggle-btn {
+  transition: color 0.2s, background 0.2s;
+  border-radius: 4px;
+  padding: 10px 16px;
+  color: inherit;
+  background: none;
+}
+.theme-toggle-btn:hover, .theme-toggle-btn:focus-visible {
+  color: #fff !important;
+  background: #333 !important;
+}
+
+/* CV link color: light blue in dark mode, dark blue in light mode, pointer on hover, no hover color change */
+[data-theme="light"] .cv-link {
+  color: #0044ff; /* dark blue for light mode */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+[data-theme="dark"] .cv-link {
+  color: #76b4ff; /* light blue for dark mode */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cv-link:hover {
+  cursor: pointer;
+}
