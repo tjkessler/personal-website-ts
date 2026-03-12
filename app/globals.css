@@ -101,3 +101,11 @@ body {
 .cv-link:hover {
   cursor: pointer;
 }
+
+/* Slightly darker hover color for links */
+[data-theme="light"] .cv-link:hover {
+  color: #0033cc;
+}
+[data-theme="dark"] .cv-link:hover {
+  color: #4e8fd4;
+}
