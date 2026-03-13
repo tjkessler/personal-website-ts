@@ -70,7 +70,7 @@ export default function Projects() {
             >
               Historical figure chatbot
             </a>
-            {' '} - A full-stack app to chat with AI personas of historical figures. FastAPI backend, React frontend, YAML persona files, SQLite DB, and support for custom personas. Modern UI and conversation history.
+            {' '} - A full-stack app to chat with AI personas of historical figures. FastAPI backend, React frontend, SQLite DB, and support for custom personas. Modern UI and conversation history.
           </li>
           <li>
             <a
