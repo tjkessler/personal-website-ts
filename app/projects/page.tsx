@@ -59,6 +59,42 @@ export default function Projects() {
           {' '} - Inspired by the regenerative abilities of starfish, our multidisciplinary team designed and built a low-cost, 3D-printed prosthetic hand to help level the field for people with disabilities. The prototype uses forearm muscle sensors, a Raspberry Pi for signal processing, and motors to control finger movement. Project Starfish won first prize in the 2016 UMass Lowell Francis College of Engineering Prototyping Competition, and the Innovative Technology Solution award at the 2017 UMass Lowell DifferenceMaker 50K Idea Challenge.
         </li>
       </ul>
+        <h2 className="text-2xl font-bold mb-6">Side projects</h2>
+        <ul className="projects-list mb-12">
+          <li>
+            <a
+              href="https://github.com/tjkessler/historical-figure-chatbot"
+              className="cv-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Historical figure chatbot
+            </a>
+            {' '} - A full-stack app to chat with AI personas of historical figures. FastAPI backend, React frontend, YAML persona files, SQLite DB, and support for custom personas. Modern UI and conversation history.
+          </li>
+          <li>
+            <a
+              href="https://github.com/tjkessler/llm-fine-tuning"
+              className="cv-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LLM fine-tuning
+            </a>
+            {' '} - Fine-tuning and testing language models (BERT, GPT-2) on open-access journal articles, with scripts for data prep, model training, and a web app for interactive demos.
+          </li>
+          <li>
+            <a
+              href="https://github.com/tjkessler/rag-demo"
+              className="cv-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              RAG system demo
+            </a>
+            {' '} - A demo Retrieval-Augmented Generation (RAG) project with a FastAPI backend (ChromaDB, GPT-2) and a React frontend for document ingestion and question answering.
+          </li>
+        </ul>
     </div>
   );
 }
