@@ -17,9 +17,7 @@ export type SkillTagVariant = "default" | "accent" | "brand" | "warm";
 
 /** Project pillar chip variant — matches Tag.tsx `pillar-*` keys. */
 export type PillarTagVariant =
-  | "pillar-fullstack"
-  | "pillar-ml"
-  | "pillar-scientific";
+  "pillar-fullstack" | "pillar-ml" | "pillar-scientific";
 
 /** Proof pillar → About accent bar color. */
 export const pillarAccent: Record<Pillar, PillarAccent> = {

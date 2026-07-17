@@ -14,8 +14,8 @@ export default function Privacy() {
           backend.
         </p>
         <p>
-          Links such as email, GitHub, LinkedIn, Bluesky, and the CV download
-          go to those destinations directly. External sites may have their own
+          Links such as email, GitHub, LinkedIn, Bluesky, and the CV download go
+          to those destinations directly. External sites may have their own
           privacy practices.
         </p>
         <p>
