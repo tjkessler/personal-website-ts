@@ -1,17 +1,39 @@
+import {
+  AboutSection,
+  ContactSection,
+  ExperienceSection,
+  HeroSection,
+  ResearchSection,
+  SkillsSection,
+  WorkSection,
+} from "./components/home";
+import { Reveal } from "./components/ui";
+import { buildPageMetadata, seo } from "@/content";
+
+export const metadata = buildPageMetadata(seo.home);
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-3">About Me</h1>
-      <p>Hi! I'm Dr. Travis Kessler, machine learning and software engineer. Welcome to my website!</p>
-      <br></br>
-      <a
-        href="/files/kessler_travis_cv.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cv-link mt-4"
-      >
-        View my curriculum vitae
-      </a>
-    </div>
+    <>
+      <HeroSection />
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <ExperienceSection />
+      </Reveal>
+      <Reveal>
+        <SkillsSection />
+      </Reveal>
+      <Reveal>
+        <WorkSection />
+      </Reveal>
+      <Reveal>
+        <ResearchSection />
+      </Reveal>
+      <Reveal>
+        <ContactSection />
+      </Reveal>
+    </>
   );
 }
