@@ -1,38 +1,39 @@
-# Use official Node.js LTS image
+# Multi-stage build for Next.js standalone output (slim runtime image).
 FROM node:20-alpine AS base
-
-# Set working directory
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-ARG NEXT_PUBLIC_SUPABASE_URL
-ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
-# Install dependencies (use package.json and package-lock.json if present)
+# Install dependencies
+FROM base AS deps
 COPY package.json package-lock.json* ./
 RUN npm ci --prefer-offline
 
-# Copy the rest of the application code
+# Build the Next.js app (produces .next/standalone)
+FROM base AS builder
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Build the Next.js app
 RUN npm run build
 
-# Production image, copy only necessary files
-FROM node:20-alpine AS prod
-
+# Production image: only standalone server + static assets
+FROM base AS runner
 WORKDIR /app
 
-# Copy node_modules and built app from previous stage
-COPY --from=base /app/node_modules ./node_modules
-COPY --from=base /app/.next ./.next
-COPY --from=base /app/public ./public
-COPY --from=base /app/package.json ./package.json
-COPY --from=base /app/next.config.ts ./next.config.ts
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
-# Expose port (default Next.js port)
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
 
-# Set environment variables (override in deployment as needed)
-ENV NODE_ENV=production
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD node -e "fetch('http://127.0.0.1:'+(process.env.PORT||3000)+'/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 
-# Start the Next.js server
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

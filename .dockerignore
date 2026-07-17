@@ -1,0 +1,23 @@
+# Dependencies & build output
+node_modules
+.next
+out
+
+# Git / CI / editor
+.git
+.github
+.cursor
+.vscode
+
+# Docs (not needed in image)
+*.md
+BLUEPRINT.md
+
+# Env & secrets
+.env*
+!.env.example
+
+# Misc
+npm-debug.log*
+.DS_Store
+coverage

@@ -1,111 +1,391 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff;
-  --foreground: #070707;
+  /* Light-first defaults */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  /* Interactive: links, CTAs, focus */
+  --accent: #1d4ed8;
+  --accent-foreground: #ffffff;
+  /* Identity: verdigris (brand) + copper (warm) — from hero atmosphere */
+  --brand: #0f766e;
+  --brand-foreground: #ffffff;
+  --warm: #b45309;
+  --warm-foreground: #ffffff;
+  /* Soft pillar chips on project cards — distinct hues from Skills (blue/teal/copper) */
+  --chip-rose: #be123c;
+  --chip-sky: #0369a1;
+  --chip-lime: #4d7c0f;
+  --border: #cbd5e1;
+  --header-bg: #ffffff;
+  --header-fg: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-warm: var(--warm);
+  --color-warm-foreground: var(--warm-foreground);
+  --color-chip-rose: var(--chip-rose);
+  --color-chip-sky: var(--chip-sky);
+  --color-chip-lime: var(--chip-lime);
+  --color-border: var(--border);
+  --color-header-bg: var(--header-bg);
+  --color-header-fg: var(--header-fg);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-source-serif);
 }
 
-/* Add theme override */
-[data-theme="dark"] {
-  --background: #070707;
-  --foreground: #ededed;
-}
 [data-theme="light"] {
-  --background: #fff;
-  --foreground: #070707;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #1d4ed8;
+  --accent-foreground: #ffffff;
+  --brand: #0f766e;
+  --brand-foreground: #ffffff;
+  --warm: #b45309;
+  --warm-foreground: #ffffff;
+  --chip-rose: #be123c;
+  --chip-sky: #0369a1;
+  --chip-lime: #4d7c0f;
+  --border: #cbd5e1;
+  --header-bg: #ffffff;
+  --header-fg: #0f172a;
+}
+
+[data-theme="dark"] {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #60a5fa;
+  --accent-foreground: #0b1220;
+  --brand: #2dd4bf;
+  --brand-foreground: #042f2e;
+  --warm: #f59e0b;
+  --warm-foreground: #1c1003;
+  --chip-rose: #fb7185;
+  --chip-sky: #38bdf8;
+  --chip-lime: #a3e635;
+  --border: #334155;
+  --header-bg: #111827;
+  --header-fg: #e2e8f0;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
 }
 
-@media (max-width: 768px) {
-  .header-nav {
-    display: none !important;
-  }
-  .hamburger-menu-btn {
-    display: block !important;
-  }
-}
-@media (min-width: 769px) {
-  .header-nav {
-    display: flex !important;
-  }
-  .hamburger-menu-btn {
-    display: none !important;
-  }
+/* Keyboard focus: accent ring; mouse clicks stay quiet */
+:focus {
+  outline: none;
 }
 
-/* Header button hover effect */
-.header-link {
-  transition: color 0.2s, background 0.2s;
-  border-radius: 4px;
-  padding: 10px 16px;
-  color: inherit;
-  background: none;
-}
-.header-link:hover, .header-link:focus-visible {
-  color: #222 !important;
-  background: #fff !important;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .header-link:hover, .header-link:focus-visible {
-    color: #fff !important;
-    background: #333 !important;
-  }
-}
-
-/* Header nav alignment for taller items */
-.header-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  height: 40px;
-}
-/* Theme toggle button hover effect */
-.theme-toggle-btn {
-  transition: color 0.2s, background 0.2s;
-  border-radius: 4px;
-  padding: 10px 16px;
-  color: inherit;
-  background: none;
-}
-.theme-toggle-btn:hover, .theme-toggle-btn:focus-visible {
-  color: #fff !important;
-  background: #333 !important;
-}
-
-/* CV link color: light blue in dark mode, dark blue in light mode, pointer on hover, no hover color change */
-[data-theme="light"] .cv-link {
-  color: #0044ff; /* dark blue for light mode */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s;
+  border-radius: 0 0 0.375rem 0;
+  transform: translateY(-120%);
+  transition: transform 0.15s ease;
 }
 
-[data-theme="dark"] .cv-link {
-  color: #76b4ff; /* light blue for dark mode */
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--accent-foreground);
+  outline-offset: 2px;
+}
+
+/* Accent-driven text links */
+.text-link {
+  color: var(--accent);
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-.cv-link:hover {
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-/* Slightly darker hover color for links */
-[data-theme="light"] .cv-link:hover {
-  color: #0033cc;
+.text-link:hover {
+  opacity: 0.8;
 }
-[data-theme="dark"] .cv-link:hover {
-  color: #4e8fd4;
+
+/* CTA buttons */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: 100%;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-cta--primary {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-cta--primary:hover {
+  opacity: 0.9;
+}
+
+.btn-cta--secondary {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.btn-cta--secondary:hover {
+  opacity: 0.85;
+}
+
+/*
+  Soft section washes — extend hero brand/warm without loud fills.
+*/
+.section-tone-brand {
+  background: color-mix(in srgb, var(--brand) 5.5%, var(--background));
+}
+
+.section-tone-warm {
+  background: color-mix(in srgb, var(--warm) 4.5%, var(--background));
+}
+
+[data-theme="dark"] .section-tone-brand {
+  background: color-mix(in srgb, var(--brand) 8%, var(--background));
+}
+
+[data-theme="dark"] .section-tone-warm {
+  background: color-mix(in srgb, var(--warm) 6%, var(--background));
+}
+
+/* Section title mark — brand identity, not interactive accent */
+.heading-mark {
+  position: relative;
+  padding-left: 0.85rem;
+}
+
+.heading-mark::before {
+  content: "";
+  position: absolute;
+  top: 0.2em;
+  bottom: 0.15em;
+  left: 0;
+  width: 0.2rem;
+  border-radius: 999px;
+  background: var(--brand);
+}
+
+.heading-mark--warm::before {
+  background: var(--warm);
+}
+
+/*
+  Hero atmosphere — ink + verdigris (scientific / instrument feel).
+  Uses brand/warm tokens; avoids purple-glow and flat fills.
+*/
+.hero-atmosphere {
+  --hero-ink: color-mix(in srgb, var(--foreground) 8%, transparent);
+  --hero-verdigris: color-mix(in srgb, var(--brand) 22%, transparent);
+  --hero-copper: color-mix(in srgb, var(--warm) 10%, transparent);
+  --hero-mist: color-mix(in srgb, var(--background) 70%, transparent);
+  background:
+    radial-gradient(
+      120% 80% at 12% 18%,
+      var(--hero-verdigris),
+      transparent 55%
+    ),
+    radial-gradient(90% 70% at 88% 12%, var(--hero-copper), transparent 50%),
+    radial-gradient(70% 50% at 70% 88%, var(--hero-ink), transparent 60%),
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--brand) 6%, var(--background)) 0%,
+      var(--background) 45%,
+      color-mix(in srgb, var(--warm) 4%, var(--background)) 100%
+    );
+}
+
+[data-theme="dark"] .hero-atmosphere {
+  --hero-ink: color-mix(in srgb, #94a3b8 12%, transparent);
+  --hero-verdigris: color-mix(in srgb, var(--brand) 16%, transparent);
+  --hero-copper: color-mix(in srgb, var(--warm) 8%, transparent);
+  background:
+    radial-gradient(110% 75% at 8% 20%, var(--hero-verdigris), transparent 55%),
+    radial-gradient(80% 60% at 92% 8%, var(--hero-copper), transparent 48%),
+    radial-gradient(65% 45% at 65% 95%, var(--hero-ink), transparent 55%),
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--brand) 22%, var(--background)) 0%,
+      var(--background) 50%,
+      color-mix(in srgb, var(--warm) 12%, var(--background)) 100%
+    );
+}
+
+.hero-atmosphere__wash {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    var(--hero-mist) 100%
+  );
+}
+
+.hero-atmosphere__grid {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 40% 35%,
+    #000 20%,
+    transparent 75%
+  );
+}
+
+[data-theme="dark"] .hero-atmosphere__grid {
+  opacity: 0.22;
+}
+
+/* --- Motion (blueprint 5.1): hero entrance, scroll reveal, card hover --- */
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 0.45s ease-out both;
+}
+
+.hero-enter--1 {
+  animation-delay: 0ms;
+}
+
+.hero-enter--2 {
+  animation-delay: 90ms;
+}
+
+.hero-enter--3 {
+  animation-delay: 180ms;
+}
+
+.hero-enter--4 {
+  animation-delay: 270ms;
+}
+
+/* Progressive: visible by default; JS adds --ready to enable the hidden state */
+.reveal {
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.reveal.reveal--ready:not(.reveal--in) {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.reveal.reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+  background-color: color-mix(in srgb, var(--brand) 6%, var(--background));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--foreground) 6%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+
+  .hero-enter {
+    animation: none;
+  }
+
+  .reveal,
+  .reveal.reveal--ready:not(.reveal--in),
+  .reveal.reveal--in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card {
+    transition: none;
+  }
+
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .text-link,
+  .btn-cta {
+    transition: none;
+  }
 }
