@@ -9,7 +9,9 @@ export function HeroSection() {
   return (
     <Section
       fullBleed
-      className="hero-atmosphere relative flex min-h-[min(100svh,52rem)] items-center overflow-hidden !py-16 sm:!py-24 md:!py-32"
+      /* Fills the viewport below the sticky h-18 header; svh tracks resizes
+         while the user is at the top without mobile URL-bar jumpiness. */
+      className="hero-atmosphere relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden !py-16 sm:!py-24 md:!py-32"
     >
       <div className="hero-atmosphere__wash" aria-hidden="true" />
       <div className="hero-atmosphere__grid" aria-hidden="true" />

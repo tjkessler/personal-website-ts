@@ -328,8 +328,9 @@ export default function ClientLayout({
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
+      {/* Fixed h-18 (4.5rem): hero min-height math depends on it (HeroSection). */}
       <header className="sticky top-0 z-[100] border-b border-border bg-header-bg text-header-fg">
-        <Container className="flex min-w-0 items-center justify-between gap-3 py-4">
+        <Container className="flex h-18 min-w-0 items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-1 md:gap-8">
             <button
               ref={menuButtonRef}
