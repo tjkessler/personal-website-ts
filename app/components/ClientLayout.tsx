@@ -28,7 +28,7 @@ const FOCUSABLE_SELECTOR = [
 const navInteractive =
   "rounded text-inherit no-underline transition-colors hover:bg-muted hover:text-header-fg focus-visible:bg-muted focus-visible:text-header-fg";
 
-/** Shared hit target for GitHub, LinkedIn, and theme toggle. */
+/** Shared hit target for social links and the theme toggle. */
 const iconControlClass = `${navInteractive} inline-flex size-10 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent p-0 shadow-none`;
 
 const textNavItems = site.navItems.filter((item) => !item.icon);
@@ -53,6 +53,21 @@ function NavIcon({ icon }: { icon: NonNullable<NavItem["icon"]> }) {
     );
   }
 
+  if (icon === "linkedin") {
+    return (
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z" />
+      </svg>
+    );
+  }
+
   return (
     <svg
       width="26"
@@ -62,7 +77,7 @@ function NavIcon({ icon }: { icon: NonNullable<NavItem["icon"]> }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
-      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z" />
+      <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.719 3.713 3.638 6.181 3.338-4.458.663-8.427 2.294-3.228 8.078 5.72 5.925 7.84-1.27 8.445-3.595.605 2.325 2.242 9.355 8.342 3.595 4.583-4.566-1.258-7.415-4.334-8.078 2.469.3 5.366-.619 6.181-3.338.246-.829.624-5.79.624-6.479 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" />
     </svg>
   );
 }

@@ -113,7 +113,7 @@ export interface NavItem {
   /** Route (`/projects`) or in-page anchor (`#about`). */
   href: string;
   /** When set, header renders an icon-only control. */
-  icon?: "github" | "linkedin";
+  icon?: "github" | "linkedin" | "bluesky";
 }
 
 export interface SocialLink {

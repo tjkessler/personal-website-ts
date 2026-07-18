@@ -45,6 +45,11 @@ export const site: SiteContent = {
       href: "https://www.linkedin.com/in/traviskessler/",
       icon: "linkedin",
     },
+    {
+      label: "Bluesky",
+      href: "https://bsky.app/profile/traviskessler.bsky.social",
+      icon: "bluesky",
+    },
   ],
   socialLinks: [
     {
