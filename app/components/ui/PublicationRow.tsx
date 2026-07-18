@@ -30,16 +30,18 @@ export function PublicationRow({
       <p className="mt-1 text-sm text-foreground">
         <span className="italic">{publication.venue}</span>
         <span className="text-muted-foreground"> ({publication.year})</span>
+        {publication.doi ? (
+          <>
+            <span className="text-muted-foreground"> · </span>
+            <TextLink href={doiHref(publication.doi)}>DOI</TextLink>
+          </>
+        ) : publication.url ? (
+          <>
+            <span className="text-muted-foreground"> · </span>
+            <TextLink href={publication.url}>Link</TextLink>
+          </>
+        ) : null}
       </p>
-      {publication.doi ? (
-        <p className="mt-2 text-sm">
-          <TextLink href={doiHref(publication.doi)}>DOI</TextLink>
-        </p>
-      ) : publication.url ? (
-        <p className="mt-2 text-sm">
-          <TextLink href={publication.url}>Link</TextLink>
-        </p>
-      ) : null}
       {topics.length > 0 ? (
         <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
           {topics.map((topic) => (

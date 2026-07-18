@@ -10,5 +10,5 @@ export { PublicationRow } from "./PublicationRow";
 export { PublicationList } from "./PublicationList";
 export { PresentationRow } from "./PresentationRow";
 export { Reveal } from "./Reveal";
-export { tagClassName } from "./Tag";
+export { tagClassName, tagLinkClassName } from "./Tag";
 export type { TagVariant } from "./Tag";

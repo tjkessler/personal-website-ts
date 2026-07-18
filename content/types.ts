@@ -36,11 +36,17 @@ export interface Experience {
   url?: string;
 }
 
+export interface Skill {
+  label: string;
+  /** Official project page or a neutral overview of the concept. */
+  href?: string;
+}
+
 export interface SkillGroup {
   id: string;
   /** Category label, e.g. "Full-stack / Web". */
   label: string;
-  skills: string[];
+  skills: Skill[];
 }
 
 export interface Project {

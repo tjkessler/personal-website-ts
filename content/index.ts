@@ -6,6 +6,8 @@ export type {
   Presentation,
   Project,
   Publication,
+  Skill,
+  SkillGroup,
 } from "./types";
 
 export { education, featuredAwards, otherAwards } from "./awards";

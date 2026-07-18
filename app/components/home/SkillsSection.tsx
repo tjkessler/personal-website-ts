@@ -1,5 +1,10 @@
 import { skillGroupTagVariant, skillGroups } from "@/content";
-import { Heading, Section, tagClassName } from "@/app/components/ui";
+import {
+  Heading,
+  Section,
+  tagClassName,
+  tagLinkClassName,
+} from "@/app/components/ui";
 
 /** Skills: categorized bordered chips from content/skills.ts (blueprint 3.5). */
 export function SkillsSection() {
@@ -18,8 +23,21 @@ export function SkillsSection() {
               </h3>
               <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                 {group.skills.map((skill) => (
-                  <li key={skill} className={tagClassName(variant)}>
-                    {skill}
+                  <li key={skill.label}>
+                    {skill.href ? (
+                      <a
+                        href={skill.href}
+                        className={tagLinkClassName(variant)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {skill.label}
+                      </a>
+                    ) : (
+                      <span className={tagClassName(variant)}>
+                        {skill.label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
