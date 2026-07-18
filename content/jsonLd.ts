@@ -6,6 +6,7 @@ import type { Publication } from "./types";
 
 const personId = `${seo.siteUrl}/#person`;
 const websiteId = `${seo.siteUrl}/#website`;
+const profilePageId = `${seo.siteUrl}/#profile`;
 
 function publicationNode(pub: Publication): Record<string, unknown> {
   const node: Record<string, unknown> = {
@@ -36,7 +37,7 @@ function publicationNode(pub: Publication): Record<string, unknown> {
   return node;
 }
 
-/** Schema.org JSON-LD for Person, WebSite, and publications (root layout). */
+/** Schema.org JSON-LD for Travis's profile, website, and publications. */
 export function buildJsonLd(): Record<string, unknown> {
   const jobTitle = site.person.titles.join(" · ");
 
@@ -52,6 +53,26 @@ export function buildJsonLd(): Record<string, unknown> {
         jobTitle,
         email: site.email,
         sameAs: [site.github, site.linkedin, site.bluesky],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "University of Massachusetts Lowell",
+          url: "https://www.uml.edu/",
+        },
+        worksFor: {
+          "@type": "Organization",
+          name: "Cognitive Chemistry Labs",
+          url: "https://cognichem.com/",
+        },
+        knowsAbout: [
+          "Artificial intelligence",
+          "Machine learning",
+          "Scientific computing",
+          "Full-stack software engineering",
+          "Quantitative structure–activity relationship",
+          "Computational chemistry",
+          "Combustion modeling",
+        ],
+        mainEntityOfPage: { "@id": profilePageId },
       },
       {
         "@type": "WebSite",
@@ -61,6 +82,15 @@ export function buildJsonLd(): Record<string, unknown> {
         description: seo.defaultDescription,
         author: { "@id": personId },
         publisher: { "@id": personId },
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": profilePageId,
+        url: seo.siteUrl,
+        name: site.person.name,
+        description: seo.home.description,
+        isPartOf: { "@id": websiteId },
+        mainEntity: { "@id": personId },
       },
       ...publications.map(publicationNode),
     ],

@@ -12,7 +12,7 @@ export const metadata = buildPageMetadata(seo.research);
 export default function Research() {
   return (
     <Section>
-      <Heading as="h1">Published Works</Heading>
+      <Heading as="h1">Research</Heading>
       <p className="mt-3 text-muted-foreground">
         Full publication list. Featured works also appear on the{" "}
         <TextLink href="/#research">home Research</TextLink> section.

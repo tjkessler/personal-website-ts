@@ -151,6 +151,8 @@ export interface PageSeo {
   description: string;
   /** Path relative to site root, e.g. `/projects`. */
   path: string;
+  /** Date the route's substantive content was last updated (YYYY-MM-DD). */
+  lastModified: string;
 }
 
 /** Site-wide and per-route SEO fields (OG image via App Router opengraph-image routes). */

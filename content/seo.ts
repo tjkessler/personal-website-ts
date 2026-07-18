@@ -8,6 +8,7 @@ const home: PageSeo = {
   title: siteName,
   description: site.person.shortBio,
   path: "/",
+  lastModified: "2026-07-18",
 };
 
 const projects: PageSeo = {
@@ -15,6 +16,7 @@ const projects: PageSeo = {
   description:
     "Full-stack, ML/AI, and scientific computing projects — from production SaaS and agentic analytics to open-source scientific tools.",
   path: "/projects",
+  lastModified: "2026-07-18",
 };
 
 const research: PageSeo = {
@@ -22,6 +24,7 @@ const research: PageSeo = {
   description:
     "Publications and presentations in machine learning, QSAR, combustion, and open-source scientific software.",
   path: "/research",
+  lastModified: "2026-07-18",
 };
 
 const privacy: PageSeo = {
@@ -29,6 +32,7 @@ const privacy: PageSeo = {
   description:
     "This site does not use cookies or analytics and has no contact-form backend.",
   path: "/privacy",
+  lastModified: "2026-07-17",
 };
 
 /** Per-route titles, descriptions, and paths for Next.js Metadata / Open Graph (Bluesky CardyB). */
