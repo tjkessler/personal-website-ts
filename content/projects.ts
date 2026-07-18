@@ -14,7 +14,7 @@ export const projects: Project[] = [
   },
   {
     id: "scepter",
-    title: "SCEPTER: Strategic Chaos for Enhanced Resilience (DARPA)",
+    title: "SCEPTER: Strategic Chaos Engine for Planning, Tactics, Experimentation and Resiliency (DARPA)",
     summary:
       "DARPA program developing AI-driven analytic engines to generate and validate novel military strategies, enabling rapid exploration of complex scenarios and discovery of new courses of action using goal-oriented agents and advanced model abstraction.",
     tech: ["Agents", "MLOps", "MLflow", "CI/CD"],
