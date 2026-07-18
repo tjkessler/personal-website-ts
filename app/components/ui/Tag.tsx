@@ -8,7 +8,8 @@ const tagBaseClassName =
 const tagVariants = {
   default: "border-border bg-muted/40 light:bg-muted/70",
   /** Soft tint — skill groups (blue / teal / copper). */
-  accent: "border-accent/40 bg-accent/15 light:border-accent/60 light:bg-accent/25",
+  accent:
+    "border-accent/40 bg-accent/15 light:border-accent/60 light:bg-accent/25",
   brand: "border-brand/35 bg-brand/12 light:border-brand/55 light:bg-brand/20",
   warm: "border-warm/35 bg-warm/12 light:border-warm/55 light:bg-warm/20",
   /** Soft tint — project pillar labels (rose / sky / lime; not skill hues). */
