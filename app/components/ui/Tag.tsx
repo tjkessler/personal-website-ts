@@ -24,6 +24,11 @@ export function tagClassName(variant: TagVariant = "default"): string {
   return `${tagBaseClassName} ${tagVariants[variant]}`;
 }
 
+/** Interactive chip classes for linked tags. */
+export function tagLinkClassName(variant: TagVariant = "default"): string {
+  return `${tagClassName(variant)} block transition-[border-color,background-color,box-shadow] hover:border-foreground/40 hover:bg-background/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background`;
+}
+
 /** Tag classes for a proof-pillar id on project cards. */
 export function pillarTagClassName(pillarId: Pillar): string {
   return tagClassName(pillarTagVariant[pillarId]);

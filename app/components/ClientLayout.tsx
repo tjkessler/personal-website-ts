@@ -315,21 +315,7 @@ export default function ClientLayout({
       </a>
       <header className="sticky top-0 z-[100] border-b border-border bg-header-bg text-header-fg">
         <Container className="flex min-w-0 items-center justify-between gap-3 py-4">
-          <div className="flex min-w-0 items-center gap-8">
-            <Link
-              href="/"
-              className="inline-flex h-10 min-w-0 items-center truncate rounded text-lg font-bold leading-none text-inherit no-underline sm:text-xl"
-            >
-              {site.person.name}
-            </Link>
-            <nav
-              className="hidden h-10 items-center gap-1 md:flex"
-              aria-label="Primary"
-            >
-              <NavLinks />
-            </nav>
-          </div>
-          <div className="flex shrink-0 items-center gap-1">
+          <div className="flex min-w-0 items-center gap-1 md:gap-8">
             <button
               ref={menuButtonRef}
               type="button"
@@ -365,6 +351,20 @@ export default function ClientLayout({
                 )}
               </svg>
             </button>
+            <Link
+              href="/"
+              className="inline-flex h-10 min-w-0 items-center truncate rounded text-lg font-bold leading-none text-inherit no-underline sm:text-xl"
+            >
+              {site.person.name}
+            </Link>
+            <nav
+              className="hidden h-10 items-center gap-1 md:flex"
+              aria-label="Primary"
+            >
+              <NavLinks />
+            </nav>
+          </div>
+          <div className="flex shrink-0 items-center gap-1">
             <IconNavLinks />
             {mounted && (
               <button

@@ -29,12 +29,13 @@ export function PresentationRow({
       <p className="mt-1 text-sm text-foreground">
         <span className="italic">{presentation.event}</span>
         <span className="text-muted-foreground"> ({presentation.year})</span>
+        {presentation.url ? (
+          <>
+            <span className="text-muted-foreground"> · </span>
+            <TextLink href={presentation.url}>Link</TextLink>
+          </>
+        ) : null}
       </p>
-      {presentation.url ? (
-        <p className="mt-2 text-sm">
-          <TextLink href={presentation.url}>Link</TextLink>
-        </p>
-      ) : null}
       {topics.length > 0 ? (
         <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
           {topics.map((topic) => (
