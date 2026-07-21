@@ -7,6 +7,7 @@ import React, {
   useSyncExternalStore,
 } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/content";
 import type { NavItem } from "@/content";
 import { Footer } from "./Footer";
@@ -230,6 +231,7 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   const theme = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
@@ -244,6 +246,17 @@ export default function ClientLayout({
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const themeButtonRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLElement>(null);
+
+  /** Always land on `/` at the top — Next Link is a no-op when already on home with a hash. */
+  const goHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+    if (pathname !== "/") return;
+    event.preventDefault();
+    if (window.location.hash || window.location.search) {
+      window.history.replaceState(null, "", "/");
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -369,6 +382,7 @@ export default function ClientLayout({
             </button>
             <Link
               href="/"
+              onClick={goHome}
               className="inline-flex h-10 min-w-0 items-center truncate rounded text-lg font-bold leading-none text-inherit no-underline sm:text-xl"
             >
               {site.person.name}

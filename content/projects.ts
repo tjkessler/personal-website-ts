@@ -37,9 +37,41 @@ export const projects: Project[] = [
     title: "Project Starfish",
     summary:
       "Inspired by the regenerative abilities of starfish, our multidisciplinary team designed and built a low-cost, 3D-printed prosthetic hand to help level the field for people with disabilities. The prototype uses forearm muscle sensors, a Raspberry Pi for signal processing, and motors to control finger movement. Project Starfish won first prize in the 2016 UMass Lowell Francis College of Engineering Prototyping Competition, and the Innovative Technology Solution award at the 2017 UMass Lowell DifferenceMaker 50K Idea Challenge.",
-    tech: ["Raspberry Pi", "sensors", "3D printing"],
+    tech: ["Raspberry Pi", "Sensors", "3D printing"],
     pillars: ["scientific"],
     url: "https://www.uml.edu/engineering/research/engineering-solutions/student-research.aspx",
+  },
+  {
+    id: "ecnet",
+    title: "ECNet",
+    summary:
+      "QSPR-based machine learning for fuel property prediction — open-source tooling from the Energy and Combustion Research Laboratory.",
+    tech: ["Python", "QSPR", "ML"],
+    pillars: ["ml", "scientific"],
+    side: true,
+    featured: true,
+    github: "https://github.com/ecrl/ecnet",
+  },
+  {
+    id: "padelpy",
+    title: "PaDELPy",
+    summary:
+      "A Python wrapper for PaDEL-Descriptor software, making molecular descriptor calculation accessible from Python workflows.",
+    tech: ["Python", "Cheminformatics"],
+    pillars: ["scientific"],
+    side: true,
+    featured: true,
+    github: "https://github.com/ecrl/padelpy",
+  },
+  {
+    id: "koopman-graph",
+    title: "KoopmanGraph",
+    summary:
+      "Topology-aware Koopman autoencoders for forecasting and analyzing networked dynamics.",
+    tech: ["Python", "PyTorch", "PyTorch Geometric"],
+    pillars: ["ml", "scientific"],
+    side: true,
+    github: "https://github.com/tjkessler/KoopmanGraph",
   },
   {
     id: "historical-figure-chatbot",
@@ -59,7 +91,6 @@ export const projects: Project[] = [
     tech: ["BERT", "GPT-2", "Python"],
     pillars: ["ml"],
     side: true,
-    featured: true,
     github: "https://github.com/tjkessler/llm-fine-tuning",
   },
   {
@@ -70,7 +101,6 @@ export const projects: Project[] = [
     tech: ["FastAPI", "ChromaDB", "GPT-2", "React"],
     pillars: ["fullstack", "ml"],
     side: true,
-    featured: true,
     github: "https://github.com/tjkessler/rag-demo",
   },
 ];
