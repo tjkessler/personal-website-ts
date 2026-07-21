@@ -354,8 +354,9 @@ body {
     box-shadow 0.2s ease;
 }
 
+/* Keyboard focus only — avoids sticky raise after click + back navigation */
 .project-card:hover,
-.project-card:focus-within {
+.project-card:has(:focus-visible) {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
   background-color: color-mix(in srgb, var(--brand) 6%, var(--background));
@@ -363,7 +364,7 @@ body {
 }
 
 [data-theme="light"] .project-card:hover,
-[data-theme="light"] .project-card:focus-within {
+[data-theme="light"] .project-card:has(:focus-visible) {
   border-color: color-mix(in srgb, var(--brand) 55%, var(--border));
   background-color: color-mix(in srgb, var(--brand) 10%, var(--background));
 }
@@ -390,7 +391,7 @@ body {
   }
 
   .project-card:hover,
-  .project-card:focus-within {
+  .project-card:has(:focus-visible) {
     transform: none;
     box-shadow: none;
   }
