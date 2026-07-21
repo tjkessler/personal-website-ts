@@ -20,7 +20,11 @@ export {
   themeChrome,
   type PillarAccent,
 } from "./theme";
-export { featuredProjects, mainProjects, sideProjects } from "./projects";
+export {
+  featuredProjects,
+  industryProjects,
+  packageProjects,
+} from "./projects";
 export {
   featuredPublications,
   homeResearchIntro,

@@ -11,8 +11,8 @@ import {
   experience,
   skillGroups,
   featuredProjects,
-  mainProjects,
-  sideProjects,
+  industryProjects,
+  packageProjects,
   featuredPublications,
   publications,
 } from "@/content";
@@ -27,7 +27,7 @@ import {
 | `theme.ts`      | Pillar / skill-group → visual variant maps (About bars, skill chips, project pillar tags)                                                                       |
 | `experience.ts` | Roles, orgs, dates, bullets (newest first)                                                                                                                      |
 | `skills.ts`     | Skill groups and lists                                                                                                                                          |
-| `projects.ts`   | Project summaries, tech tags, links; set `featured` / `side`. Use `featuredProjects`, `mainProjects`, `sideProjects` on pages                                   |
+| `projects.ts`   | Project summaries, tech tags, links; set `featured` / `category` (`industry` \| `package`). Use `featuredProjects`, `industryProjects`, `packageProjects` on pages |
 | `research.ts`   | Publications and presentations (venue, year, DOI/URL, topics); set `featured` for home. Use `featuredPublications` on home                                      |
 | `awards.ts`     | Awards and education entries; set `featured` for home About strip                                                                                               |
 | `seo.ts`        | Per-route titles, descriptions, and paths; `buildPageMetadata()` for title/description/OG/canonical (Bluesky OG cards use these + `app/**/opengraph-image.tsx`) |
@@ -40,7 +40,7 @@ import {
 | Surface          | Content selector                          |
 | ---------------- | ----------------------------------------- |
 | Home `#work`     | `featuredProjects` (`featured: true`)     |
-| `/projects`      | `mainProjects` + `sideProjects`           |
+| `/projects`      | `industryProjects` + `packageProjects`    |
 | Home `#research` | `featuredPublications` (`featured: true`) |
 | `/research`      | `publications` + `presentations`          |
 

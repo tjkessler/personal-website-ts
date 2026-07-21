@@ -48,7 +48,6 @@ export const publications: Publication[] = [
     year: 2022,
     doi: "10.1115/ICEF2022-91163",
     topics: ["ml", "biofuels", "sooting", "combustion"],
-    featured: true,
   },
   {
     id: "pb9-diesel-biofuel-blends",
@@ -133,6 +132,7 @@ export const publications: Publication[] = [
     year: 2017,
     doi: "10.21105/joss.00401",
     topics: ["ml", "open-source", "biofuels"],
+    featured: true,
   },
   {
     id: "pb1-furanic-cetane-asme",
@@ -156,9 +156,9 @@ export const homeResearchIntro = `${publications.length} peer-reviewed publicati
 const featuredPublicationIds = [
   "pb4-furanic-cetane-fuel",
   "pb7-yield-sooting-index",
+  "pb2-ecnet",
   "pb11-octane-qsar",
   "pb12-co2-hdpe-upcycling",
-  "pb10-terpene-fuel-additives",
 ] as const;
 
 /** Home Research section (explicit featured order). */

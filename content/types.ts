@@ -57,8 +57,8 @@ export interface Project {
   pillars: Pillar[];
   /** Featured on home Selected Work when true. */
   featured?: boolean;
-  /** Side / secondary project listing when true. */
-  side?: boolean;
+  /** Listing group on `/projects`. */
+  category: "industry" | "package";
   url?: string;
   github?: string;
   demo?: string;
