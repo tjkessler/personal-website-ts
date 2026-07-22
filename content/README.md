@@ -20,20 +20,20 @@ import {
 
 ## File map
 
-| File            | What to edit                                                                                                                                                    |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `site.ts`       | Name, titles, short bio, about narrative, email, GitHub, LinkedIn, Bluesky, CV path, hero CTAs, consulting line, nav items, social links                        |
-| `pillars.ts`    | About proof pillars (Full-stack, ML/AI, Scientific computing)                                                                                                   |
-| `theme.ts`      | Pillar / skill-group → visual variant maps (About bars, skill chips, project pillar tags)                                                                       |
-| `experience.ts` | Roles, orgs, dates, bullets (newest first)                                                                                                                      |
-| `skills.ts`     | Skill groups and lists                                                                                                                                          |
+| File            | What to edit                                                                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `site.ts`       | Name, titles, short bio, about narrative, email, GitHub, LinkedIn, Bluesky, CV path, hero CTAs, consulting line, nav items, social links                           |
+| `pillars.ts`    | About proof pillars (Full-stack, ML/AI, Scientific computing)                                                                                                      |
+| `theme.ts`      | Pillar / skill-group → visual variant maps (About bars, skill chips, project pillar tags)                                                                          |
+| `experience.ts` | Roles, orgs, dates, bullets (newest first)                                                                                                                         |
+| `skills.ts`     | Skill groups and lists                                                                                                                                             |
 | `projects.ts`   | Project summaries, tech tags, links; set `featured` / `category` (`industry` \| `package`). Use `featuredProjects`, `industryProjects`, `packageProjects` on pages |
-| `research.ts`   | Publications and presentations (venue, year, DOI/URL, topics); set `featured` for home. Use `featuredPublications` on home                                      |
-| `awards.ts`     | Awards and education entries; set `featured` for home About strip                                                                                               |
-| `seo.ts`        | Per-route titles, descriptions, and paths; `buildPageMetadata()` for title/description/OG/canonical (Bluesky OG cards use these + `app/**/opengraph-image.tsx`) |
-| `jsonLd.ts`     | Root layout structured data: Person + WebSite + `ScholarlyArticle` nodes from `publications` in `research.ts`                                                   |
-| `types.ts`      | Shared TypeScript shapes (change only when adding fields)                                                                                                       |
-| `index.ts`      | Public barrel — re-export only what pages/components import from `@/content`                                                                                    |
+| `research.ts`   | Publications and presentations (venue, year, DOI/URL, topics); set `featured` for home. Use `featuredPublications` on home                                         |
+| `awards.ts`     | Awards and education entries; set `featured` for home About strip                                                                                                  |
+| `seo.ts`        | Per-route titles, descriptions, and paths; `buildPageMetadata()` for title/description/OG/canonical (Bluesky OG cards use these + `app/**/opengraph-image.tsx`)    |
+| `jsonLd.ts`     | Root layout structured data: Person + WebSite + `ScholarlyArticle` nodes from `publications` in `research.ts`                                                      |
+| `types.ts`      | Shared TypeScript shapes (change only when adding fields)                                                                                                          |
+| `index.ts`      | Public barrel — re-export only what pages/components import from `@/content`                                                                                       |
 
 ## Home vs deep routes
 
