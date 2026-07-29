@@ -77,5 +77,10 @@ export const site: SiteContent = {
       href: cvPath,
       kind: "cv",
     },
+    {
+      label: "Buy me a coffee",
+      href: "https://buymeacoffee.com/tjkessler",
+      kind: "other",
+    },
   ],
 };
